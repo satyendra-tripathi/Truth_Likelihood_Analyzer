@@ -11,8 +11,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-MODEL_PATH = Path(os.getenv("MODEL_PATH", "artifacts/model.pkl"))
-VECTORIZER_PATH = Path(os.getenv("VECTORIZER_PATH", "artifacts/vectorizer.pkl"))
+MODEL_PATH = Path(os.getenv("MODEL_PATH", Path(__file__).resolve().parent / "artifacts" / "model.pkl"))
+VECTORIZER_PATH = Path(os.getenv("VECTORIZER_PATH", Path(__file__).resolve().parent / "artifacts" / "vectorizer.pkl"))
 NLTK_DATA_DIR = Path(os.getenv("NLTK_DATA", Path(__file__).resolve().parents[1] / "nltk_data"))
 os.environ["NLTK_DATA"] = str(NLTK_DATA_DIR)
 nltk.data.path.insert(0, str(NLTK_DATA_DIR))
