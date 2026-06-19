@@ -4,6 +4,5 @@ dist/
 .venv/
 __pycache__/
 *.pyc
-ml-model/artifacts/
 npm-debug.log*
 .DS_Store

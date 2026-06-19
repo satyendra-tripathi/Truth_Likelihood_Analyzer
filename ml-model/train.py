@@ -102,7 +102,7 @@ def train(train_path: Path, valid_path: Path, out_dir: Path) -> None:
 
     models = {
         "logistic_regression": LogisticRegression(max_iter=1200, class_weight="balanced"),
-        "random_forest": RandomForestClassifier(n_estimators=250, random_state=42, class_weight="balanced"),
+        "random_forest": RandomForestClassifier(n_estimators=30, random_state=42, class_weight="balanced"),
         "naive_bayes": MultinomialNB(),
     }
 
