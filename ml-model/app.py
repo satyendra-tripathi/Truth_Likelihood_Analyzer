@@ -26,9 +26,12 @@ lemmatizer = WordNetLemmatizer()
 
 
 def ensure_nltk():
-    NLTK_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    for package in ["punkt", "punkt_tab", "stopwords", "wordnet", "omw-1.4"]:
-        nltk.download(package, download_dir=str(NLTK_DATA_DIR), quiet=True)
+    try:
+        NLTK_DATA_DIR.mkdir(parents=True, exist_ok=True)
+        for package in ["punkt", "punkt_tab", "stopwords", "wordnet", "omw-1.4"]:
+            nltk.download(package, download_dir=str(NLTK_DATA_DIR), quiet=True)
+    except Exception as e:
+        app.logger.warning(f"NLTK download failed, relying on local cache: {e}")
 
 
 def clean_text(text: str) -> str:
