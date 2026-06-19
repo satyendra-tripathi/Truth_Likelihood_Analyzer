@@ -5,7 +5,7 @@ export const analyzeWithModel = async (statement) => {
   const { data } = await axios.post(
     `${mlUrl}/predict`,
     { text: statement },
-    { timeout: 15000 }
+    { timeout: 60000 }
   );
   return data;
 };
